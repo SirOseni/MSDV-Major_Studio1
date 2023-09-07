@@ -25,10 +25,10 @@ const button = document.body.querySelector("#button");
 
 console.log(viz, viz.children);
 
-const addChildToViz = () => {
+const addChildToViz = (data) => {
   const newChild = document.createElement("div");
   newChild.className = "rectangle";
-  newChild.style.height = Math.random() * 100 + "px";
+  newChild.style.height = data * 50 + "px";
   viz.appendChild(newChild);
 };
 
@@ -45,6 +45,11 @@ function drawIrisData() {
     .then(data => data.json())
     .then(data => {
       console.log(data);
+      data.forEach(i => {
+        addChildToViz(i.petallength);
+      }
+
+      )
     });
 }
 
