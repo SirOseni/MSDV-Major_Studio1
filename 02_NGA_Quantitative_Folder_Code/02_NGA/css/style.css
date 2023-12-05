@@ -1,19 +1,93 @@
-   body {
-    background-color: #ffffff;
-    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    margin: 30px;
+html {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background:#FFffff;
+    background-size: cover;
+}
+
+body {
+    background-color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    justify-content: space-between;
 }
 
 footer {
-    margin-top: 60px;
-    color: #aaa;
-    text-align: center;
-    font-size: 12px;
+    position:absolute;
+    bottom: 0;
+    left:0;
+    color: red;
+    text-align: justify;
+    font-size: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-h1 {
+.introBtn{
+    width: 20em;
+    height: inherit;
+    background-color: gold;
+    border: 2px solid firebrick;
+    border-radius: 10px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    position: absolute;
+    left: 40%;
+
+}
+ .introBtn:hover {
+    background-color: royalblue;
+}
+
+.metalImage{
     text-align: center;
-    font-size: 50px;
+}
+
+#metalOptions{
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 100px;
+    
+}
+
+#metalOptions input{
+    font-size: 18px;
+}
+
+#metalOptions label {
+
+    font-size: 18px;
+    font-style: oblique;
+    
+}
+
+#metalOptions label:hover::before {
+    content: attr(for);
+    font-family: Roboto, -apple-system, sans-serif;
+}
+
+#coinOptions{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: inherit;
+    background-color: #bb2165;   
+
+}
+/* #coinText {
+    width: 300px; 
+    padding: 20px;
+    background-color: #63bb21;
+    border: 1px solid #ddd;
+    text-align: center;
+  } */
+
+
+h1 {
+    text-align: Justify; 
+    font-size: 60px;
+    justify-content: center;
 }
 
 h2 {
@@ -34,10 +108,9 @@ p {
 }
 
 .text {
-    width: 100%;
+    width: auto;
     margin: auto;
-    margin-bottom: 20px;
-
+    margin-bottom: 10px;
     padding: 0px;
 }
 
@@ -57,8 +130,7 @@ p {
     height: 500px;
     max-width: calc(90vw - 20px);
     max-height: calc(90vw - 20px);
-
-    position: relative;
+    position: absolute;
 
     margin: auto;
     border: 1px solid #aaa;
@@ -72,21 +144,22 @@ p {
 
 /* CSS */
 .nonSelected {
+    width: 10%;
     appearance: none;
-    background-color: transparent;
     border: 2px solid #1A1A1A;
     border-radius: 40px;
     box-sizing: border-box;
     color: #3B3B3B;
     cursor: pointer;
-    display: inline-block;
+    display: grid;
     font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 13px;
     font-weight: 600;
     line-height: normal;
     margin: 5px;
     min-width: 0;
-    outline: none;
+    outline: solid;
+    outline-width: thin;
     padding: 10px 24px;
     text-align: center;
     text-decoration: none;
@@ -106,7 +179,7 @@ p {
     color: #fff;
     background-color: #000000;
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-    transform: translateY(-2px);
+    transform: translateY(-10px);
 }
 
 .selected {
@@ -137,7 +210,7 @@ p {
     color: #fff;
     background-color: #1A1A1A;
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-    transform: translateY(-2px);
+    transform: translateY(-10px);
 }
 
 .nonSelected:active {

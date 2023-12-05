@@ -1,0 +1,85 @@
+[
+    {
+        "coinName": "usNickel",
+        "weight": 5,
+        "coinIcon":"img/us_nickel.jpeg",
+        "mainMetal":"copper",
+        "coinProduced": 253,
+        "coinText": "The us nickel which is five cent, weighs 5g. It is made of 75% Copper and 25% Nickel"
+    },
+    {
+        "coinName": "usDime",
+        "weight": 2.268,
+        "coinIcon":"img/us_dime.jpeg",
+        "mainMetal":"copper",
+        "coinProduced": 558,
+        "coinText": "The us dime which is ten cent, weighs 2.268g. It is made of 92% Copper and 8% Nickel"
+    },
+    {
+        "coinName": "usQuarter",
+        "weight": 5.67,
+        "coinIcon":"img/us_quarter.jpeg",
+        "mainMetal":"copper",
+        "coinProduced": 223,
+        "coinText": "The us quarter which is twenty-five cent, weighs 5.67g. It is made of 92% Copper and 8% Nickel"
+    },
+    {
+        "coinName": "usHalfdollar",
+        "weight": 11.34,
+        "coinIcon":"img/us_halfDollar.jpeg",
+        "mainMetal":"copper",
+        "coinProduced": 112,
+        "coinText": "The us half-dollar which is fifty cent, weighs 11.34g. It is made of 92% Copper and 8% Nickel"
+    },
+    {
+        "coinName": "us dollar",
+        "weight": 8.1,
+        "coinIcon":"img/us_dollar.jpeg",
+        "coinProduced": 156,
+        "mainMetal":"copper",
+        "coinText": "The us dollar which is hundred cent, weighs 8.1g. It is made of 89% Copper, 2% Nickel, 6% Zinc & 3.5% Manganese"
+       
+    },
+    {
+        "coinName": "uk penny",
+        "weight": 3.56,
+        "coinIcon":"img/uk_penny.png",
+        "mainMetal":"bronze",
+        "coinProduced": 3859998,
+        "coinText": "The uk penny which is one pence, weighs 3.56g. It was made of bronze till 1992 when it was switched to copper plated steel"
+    }
+    ,
+    {
+        "coinName": "uk twoPence",
+        "weight": 7.12,
+        "coinIcon":"img/uk_twoPence.jpeg",
+        "mainMetal":"bronze",
+        "coinProduced": 1929999,
+        "coinText": "The uk two pence weighs 7.12g. It was made of bronze till 1992 when it was switched to copper plated steel"
+    } ,
+    {
+        "coinName": "uk shilling",
+        "weight": 3.25,
+        "coinIcon":"img/uk_shilling.jpeg",
+        "mainMetal":"steel",
+        "coinProduced": 139653,
+        "coinText": "The uk shilling which is five pence weighs 3.25g. It is made of steel and plated with nickel"
+    } ,
+    {
+        "coinName": "danish 50øre",
+        "weight": 4.3,
+        "coinIcon":"img/danish_50øre.png",
+        "mainMetal":"bronze",
+        "coinProduced": 3195719,
+        "coinText": "The danish 50øre weighs 4.3g. It is made mainly with bronze with less than 1% of it been made of tin."
+    }
+    ,
+    {
+        "coinName": "danish 20kroner",
+        "weight": 25.7,
+        "coinIcon":"img/danish_20kroner.png",
+        "mainMetal":"gold",
+        "coinProduced": 2,
+        "coinText": "The danish 20kroner weighed 25.7g. They were used as a currency in the scandinavian countries before world war I"
+    }
+  ]
