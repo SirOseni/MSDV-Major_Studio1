@@ -1,261 +1,233 @@
-// select the big svg container
-// const svg = d3.select("#svg")
-
 let coinData;
 
-document.querySelector('.introBtn').addEventListener('click',function(){
-    document.getElementById('metalOptions').style.display='flex'
-})
+document.querySelector('.introBtn').addEventListener('click', function () {
+  // Hide introImage with transition
+  const introImage = document.querySelector('.introImage');
+  introImage.classList.add('hidden');
 
-function metalOptions(jsonFile){
-      // Fetch data from the JSON file
-      fetch(jsonFile)
-      .then(response => response.json())
-      .then(data => {
-          // Get the container element
-          const container = document.getElementById('metalOptions');
-          container.innerHTML=''
+  // transition effect
+  setTimeout(() => {
+    introImage.style.opacity = 0;
+  }, 500);
 
-          data.forEach(d => {
-            const metalButton = document.createElement('input');
-            metalButton.type = 'radio';
-            metalButton.name = 'metalNames';
-            metalButton.value = d.name;
-            metalButton.imgSrc = d.primaryImage;
-            
-            // Button names match that of metals
-            const label = document.createElement('label');
-            label.textContent = d.name;
-            label.position = 'relative';
-            label.style.color = 'red';
-            
+  setTimeout(() => {
+    introImage.style.display = 'none';
+  }, 750);
 
-            metalButton.addEventListener('click', () => {
-                coinType(d.coinOptions);
-                console.log(metalButton.imgSrc)
-              
-                const imgSrc = metalButton.imgSrc; // Replace this with your actual image source
-    
-                // Create an image element
-                const imgElement = document.createElement('img');
-                imgElement.src = imgSrc;
-            
-                // Clear the content of the .metalImage element before appending the new image
-                const metalImageContainer = document.querySelector('.metalImage');
-                metalImageContainer.innerHTML = '';
-            
-                // Append the image to the .metalImage container
-                metalImageContainer.appendChild(imgElement);
-    
-            });
+  // Display "Select a metal"
+  const metalOptionsTitle = document.getElementById('metalOptionsTitle');
+  metalOptionsTitle.style.opacity = 90;
+  metalOptionsTitle.style.display = 'block'; 
 
-            container.appendChild(metalButton);
-            container.appendChild(label);
-            container.appendChild(document.createElement('br'))
-          })
+  // Transition Metal Dropdowns
+  const metals = document.getElementById('metalOptions');
+  setTimeout(() => {
+    metals.style.display = 'flex';
+  }, 1000);
 
-})
-}
+  // Hide Intro Button
+  const introButton = document.querySelector('.introBtn');
+  introButton.classList.add('hidden');
+  setTimeout(() => {
+    introButton.style.display = 'none';
+  }, 750);
+});
 
 
-async function dataLoad() {
-  
-    try {
-        const response = await fetch("js/coinDetails.json");
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-    
-        coinData = Array.from(await response.json());
-        console.log(coinData);
-      } catch (error) {
-        console.error("Error loading data:", error);
-      }
-    }
-    
-dataLoad();
+function metalOptions(jsonFile) {
+  // Fetch data from the JSON file
+  fetch(jsonFile)
+    .then((response) => response.json())
+    .then((data) => {
+      
+      // Get the container element
+      const container = document.getElementById('metalOptions');
+      
 
-const bcointainer = document.getElementById('coinText');
+      data.forEach((d) => {
+        const metalButton = document.createElement('button');
+        metalButton.style.backgroundImage = `url(${d.primaryImage})`;
 
+        metalButton.imgSrc = d.primaryImage;
+        // Button names match that of metals
+        const label = document.createElement('label');
+        label.textContent = d.name;
+        const metalText = d.metalText;
 
-// Creating a varying coin dropdown.
-function coinType(coinOptions){
-    // Get the container element
-    const acontainer = document.getElementById('coinOptions');
-    acontainer.innerHTML=''
-    
-  // Get the HTML element where you want to display the coinText
-  const coinTextElement = document.getElementById('coinText');
-
-
-    coinOptions.forEach(coinName => {
-        const coinButton = document.createElement('input');
-        coinButton.type = 'radio';
-        coinButton.name = 'coinNames';
-        coinButton.value = coinName;
-   
-        const coinLabel = document.createElement('label');
-        coinLabel.textContent = coinName;
-    
-        coinButton.addEventListener('click', (e) => {
-            const selectedCoin = e.target.value;
-             // Find the corresponding coin object from the JSON data
-            const coinObject = coinData.find((coin) => coin.coinName === selectedCoin);
+        metalButton.addEventListener('click', () => {
+          const imgSrc = metalButton.imgSrc;
           
-      // Extract the coinText from the coin object
-            const coinText = coinObject.coinText;
-            coinTextElement.textContent = coinText;
-            coinTextElement.style.color = 'blue';
+          // Create an image element
+          const imgElement = document.createElement('img');
+          imgElement.src = imgSrc;
+          
+          // Clear the content of the .metalImage element before appending the new image
+          const metalImageContainer = document.querySelector('.metalImage');
+          metalImageContainer.innerHTML = '';
+          
+          // Append the image to the .metalImage container
+          metalImageContainer.appendChild(imgElement);
+
+          // Metal Caption
+          const metalCaption = document.querySelector('.metalImage-caption');
+          metalCaption.textContent = metalText;
+          
+          
+
+          //
+          const coinOptionsTitle = document.getElementById('coinOptionsTitle');
+          setTimeout(() => {
+            coinOptionsTitle.textContent = `Select a ${d.name} coin`;
+            coinOptionsTitle.style.display = 'block';
+          }, 750);
+
+          // Display Coin Dropdowns attached
+          setTimeout(() => {
+            coinType(d.coinOptions);
+          }, 1500);
         });
 
-        acontainer.appendChild(coinButton);
-        acontainer.appendChild(coinLabel);
-        acontainer.appendChild(document.createElement('br'));
-
         
+
+        container.appendChild(metalButton);
+        container.appendChild(document.createElement('br'));
+        container.appendChild(label);
+      });
     });
 }
 
+async function dataLoad() {
+  try {
+    const response = await fetch('js/coinDetails.json');
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
 
-// function coinDetail(selectedCoinName, coinDetails){
-//     const bcointainer = document.getElementById('coinText');
-//     const radioCoin =  coinDetails.find(coin => coin.coinName === selectedCoinName )
+    coinData = Array.from(await response.json());
+  } catch (error) {
+    console.error('Error loading data:', error);
+  }
+}
 
-//     if (radioCoin) {
-//         bcointainer.textContent = radioCoin.coinText;
-//     } else {
-//         console.error(`No details found for coin: ${selectedCoinName}`);
-//         bcointainer.textContent = ''; // Clear the content if no details are found
-//     }
-// }
+dataLoad();
+
+
+// Creating a varying coin dropdown.
+function coinType(coinOptions) {
+  // Get the container element
+  const acontainer = document.getElementById('coinOptions');
+  acontainer.innerHTML = '';
+
+  // Get image container element
+  const bcontainer = document.querySelector('.coinImage');
+
+  // Get the HTML element where you want to display the coinText
+  const coinTextElement = document.getElementById('coinText');
+
+  coinOptions.forEach((coinName) => {
+    const coinButton = document.createElement('button');
+    coinButton.textContent = coinName;
+    coinButton.name = 'coinNames';
+    coinButton.value = coinName;
+
+    // console.log(coinData);
+    const coinImage = document.createElement('img');
+
+    // console.log(coinImage);
+
+    coinButton.addEventListener('click', (e) => {
+      var coinStackBarElement = document.getElementById('coinStackBar');
+      console.log(e.target.value);
+      const newlySelectedCoin = e.target.value;
+      const coinObject = coinData.find(
+        (coin) => coin.coinName === newlySelectedCoin
+      );
+
+
+      const metalName = coinObject.mainMetal;
+      console.log(metalName);
+
+      console.log(newlySelectedCoin);
+      const coinNumber = coinObject.coinProduced;
+
+      document.querySelector('#value').innerText = coinNumber;
+      document.querySelector('#medium').innerText = newlySelectedCoin;
+      document.querySelector('#selectedMetal').innerText = metalName;
+      let activator = document.querySelector('.transformationBtn');
+
+      const coinStackActivator = document.getElementById('coinStackActivator');
+      coinStackActivator.append(activator);
+      activator.style.display = 'flex';
+
+      bcontainer.innerHTML = '';
+      bcontainer.appendChild(coinImage);
+
+      // Extract the coinText from the coin object
+      const coinText = coinObject.coinText;
+      coinTextElement.textContent = coinText;
+      coinTextElement.style.color = 'blue';
+
+      activator.addEventListener('click', function (e) {
+        coinLabel.style.display = 'flex';
+        var element = document.getElementById('CoinStackBar');
+        element.innerHTML = '';
+
+        window.requestAnimFrame = (function (callback) {
+          return (
+            window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.oRequestAnimationFrame ||
+            window.msRequestAnimationFrame ||
+            function (callback) {
+              window.setTimeout(callback, 1000 / 60);
+            }
+          );
+        })();
+
+        function setup() {
+          if (!document.createElement('svg').getAttributeNS) {
+            var coinimg = ['uk_penny.png']; // eastAfrican_cent.jpg 'uk_penny.jpg']['bitcoin.png','bitcoin-silver.png','bitcoin-copper.png'];//'bitcoin.png';//['bitcoin.png','bitcoin-silver.png','bitcoin-copper.png'];
+          } else {
+            coinimg = ['uk_penny.svg']; //'eastAfrican_cent.svg'[ 'uk_penny.svg''bitcoin.svg', 'bitcoin-silver.svg', 'bitcoin-copper.svg'];//'bitcoin.svg';//['bitcoin.svg', 'bitcoin-silver.svg', 'bitcoin-copper.svg'];
+          }
+
+          cs = new CoinStackBar({
+            container: document.getElementById('CoinStackBar'),
+            coinimgsrc: coinimg,
+            coinimgwidth: 1500,
+            coinimgheight: 1000,
+            coinheight: 30,
+            xoffset: 250,
+            yoffset: 250,
+
+            startvalue: 0,
+            maxstackheight: 500,
+            maxstackwidth: 500,
+            // containerwidth: 150,
+            containerheight: 550,
+            showshadow:false,
+          });
+
+          requestAnimFrame(test);
+        }
+        test = function () {
+          document
+            .getElementById('CoinStackBar')
+            .CoinStackBar.setValue(coinNumber);
+          console.log(coinNumber);
+
+        };
+        setup();
+      });
+
+      // Extract CoinImage
+      coinImage.src = coinObject.coinIcon;
+      coinImage.alt = coinText;
+    });
+    acontainer.appendChild(coinButton);
+    acontainer.appendChild(document.createElement('br'));
+  });
+}
 
 metalOptions('js/material.json');
-
-
-
-
-
-// D
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const coinWeights = {
-//     'cent': 2.5,
-//     'nickel': 5,
-//     'dime': 2.268,
-//     'quarters': 5.67,
-//     'half_dollar': 11.34,
-//     'dollar': 8.1 
-// };
-
-// Getting Material data - Working!
-// d3.json('js/material.json').then(function (materialData) {
-//     console.log(materialData)
-
-//     createButtons(materialData)
-//     activeButton("selected")
-// });
-
-// // Create Buttons based on data
-// function createButtons(data){
-//     //Derive names & Buttons
-//     const metal = data.map(d => d.Name)
-
-//      // make all these buttons
-//      const buttons = d3.select("#buttons")
-//      .selectAll("input")
-
-//      // the input data are names
-//      .data(metal)
-//      .join("input")
-//      .attr("type", "button")
-
-//      // give them a className
-//      .attr("class", "nonSelected")
-
-//      // the value is the text on the data
-//      .attr("value", d => d)
-
-//      // what happens when you click on the button?
-//      .on("click", function (e, d) {
-
-//         // the active button turns into nonselected
-//         activeButton("nonSelected");
-
-//         // what's the index of the button that is being clicked?
-//         index = buttons.nodes()
-//         .indexOf(this);
-
-//         // turn the new active button into selected!
-//         activeButton("selected")
-//      })
-
-// }
-
-// // a helper function for changing the state of our button
-// function activeButton(className) {
-//     d3.select(`input:nth-child(${index+1})`).attr("class", className);
-// }
-
-
-
-
-
-// let totalAmountCents = 38631544;
-
-// const coinCounts = {};
-
-// for (const weight in coinWeights) {
-//     const coinValue = coinWeights[weight];
-//     const count = Math.floor(totalAmountCents / coinValue);
-//     coinCounts[weight] = count;
-//     totalAmountCents = count * coinValue;
-// }
-
-// const coinVisualization = document.getElementById("coinVisualization");
-
-// for (const weight in coinCounts) {
-//     const count = coinCounts[weight];
-//     if (count > 0) {
-//         const coinDiv = document.createElement("div");
-//         coinDiv.textContent = `${weight}: ${count}`;
-//         coinVisualization.appendChild(coinDiv);
-//     }
-// }
-
-
-// function createCoinStack(numCoins) {
-//     const svg = document.getElementById('coinStack');
-//     const coinRadius = 10; // Radius of each coin
-//     const spacing = 1; // Spacing between coins
-
-//     for (let i = 0; i < numCoins; i++) {
-//       const coin = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-//       coin.setAttribute('cx', 250); // X-coordinate (centered in the SVG)
-//       coin.setAttribute('cy', 500 - coinRadius - i * (2 * coinRadius + spacing)); // Y-coordinate
-//       coin.setAttribute('r', coinRadius); // Radius
-//       coin.setAttribute('fill', 'gold'); // Coin color
-//       svg.appendChild(coin);
-//     }
-//   }
-
-//   // Call the function to create a stack of 1000 coins
-//   createCoinStack(10);
-

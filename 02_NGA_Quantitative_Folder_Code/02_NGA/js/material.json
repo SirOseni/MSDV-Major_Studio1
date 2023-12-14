@@ -3,56 +3,31 @@
       "name": "Aluminum",
       "Weight": 2948086,
       "primaryImage":"https://api.nga.gov/iiif/cb0b9b0e-7283-4214-a9a0-50e08d408c2a/full/!200,200/0/default.jpg",
-      "coinOptions":["uk penny","uk twoPence","Iamnotsure"]
+      "coinOptions":["aluminum cent", "east african one cent","west african one-tenth penny"],
+      "metalText": "7% of the NGA metal sculpture in our collection are made with Aluminum. This collection weighs 2,948 Kilograms"
+      
   },
   {
-    "name": "brass",
-    "Weight": 344,
-    "primaryImage":"https://api.nga.gov/iiif/d33caabe-5015-45dc-a9b8-0196a9d51081/full/!200,200/0/default.jpg",
-    "coinOptions":["uk penny","uk twoPence","mrMan"]
-},
-{
-    "name": "bronze",
+    "name": "Bronze",
     "Weight": 13741592,
     "primaryImage":"https://api.nga.gov/iiif/7e21a37b-cd93-4fa4-9fde-f68c3b01b001/full/!200,200/0/default.jpg",
-    "coinOptions":["uk penny","uk twoPence"]
+    "coinOptions":["uk penny","uk twoPence"],
+    "metalText": "36% of the NGA metal sculpture in our collection are made with Bronze. This collection weighs 13,741 Kilograms"
 
 },
 {
-    "name": "copper",
-    "Weight": 1266,
-    "primaryImage":"https://api.nga.gov/iiif/dae09cf7-2d53-4546-a223-dc844d77c7be/full/!200,200/0/default.jpg",
-    "coinOptions":["usNickel","usDime","usQuarter","danish 50øre"]
-},
-{
-    "name": "gold",
-    "Weight": 56,
-    "primaryImage":"https://api.nga.gov/iiif/00a63bb0-634e-4bfd-bd8d-956f0f37df76/full/!200,200/0/default.jpg",
-    "coinOptions":["danish 20kroner"]
-},
-{
-    "name": "iron",
+    "name": "Iron",
     "Weight": 453873,
     "primaryImage":"https://api.nga.gov/iiif/f765d9f2-acb6-412c-aa92-d15a0d7a1950/full/!200,200/0/default.jpg",
-    "coinOptions":["danish 20kroner","spanish bullion"]
-},
-{
-    "name": "lead",
-    "Weight": 23181,
-    "primaryImage":"https://api.nga.gov/iiif/84107fad-2006-4803-997b-8303a25fc21f/full/!200,200/0/default.jpg",
-    "coinOptions":["danish 20kroner","plata","plomo"]
-},
-{
-    "name": "Silver",
-    "Weight": 7204,
-    "primaryImage":"https://api.nga.gov/iiif/ec233fd5-7f64-4f00-8e70-23e09ab60186/full/!200,200/0/default.jpg",
-    "coinOptions":["unknown"]
+    "coinOptions":[],
+    "metalText": "1% of the NGA metal sculpture in our collection are made with Iron. This collection weighs 453 Kilograms"
 },
 {
     "name": "Steel",
     "Weight": 453873,
     "primaryImage":"https://api.nga.gov/iiif/6a6e6d45-da27-4fc0-9ce3-48ebee034b61/full/!200,200/0/default.jpg",
-    "coinOptions":["uk shilling","usHalfdollar"]
+    "coinOptions":["uk shilling","usHalfdollar"],
+    "metalText": "56% of the NGA metal sculpture in our collection are made with Steel. This collection weighs 21,455 Kilograms"
 
 }  
 ]

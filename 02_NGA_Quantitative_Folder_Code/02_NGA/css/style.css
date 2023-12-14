@@ -1,219 +1,284 @@
-html {
-    width: 100%;
-    height: 100%;
+* {
+    padding: 0px;
+    margin: 0px;
+  }
+  
+  .page1,
+  .page2 {
+    width: 100vw;
+    height: 100vh;
+  } 
+  
+.page2 {
+    display: flex;
+    flex-direction: column;
     position: relative;
-    background:#FFffff;
-    background-size: cover;
 }
-
-body {
-    background-color: white;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    justify-content: space-between;
-}
-
-footer {
-    position:absolute;
-    bottom: 0;
-    left:0;
-    color: red;
-    text-align: justify;
-    font-size: 30px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
-.introBtn{
-    width: 20em;
-    height: inherit;
-    background-color: gold;
-    border: 2px solid firebrick;
-    border-radius: 10px;
-    font-weight: bold;
+  
+.introText {
+    font-size: 35px;
+    text-align: center;
+    line-height: 1.2;
     color: black;
-    cursor: pointer;
-    position: absolute;
-    left: 40%;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
 
 }
- .introBtn:hover {
-    background-color: royalblue;
-}
-
-.metalImage{
-    text-align: center;
-}
-
-#metalOptions{
-  display: none;
-  flex-direction: row;
-  justify-content: space-between;
-  text-align: center;
-  margin: 0 auto;
-  margin-top: 100px;
-    
-}
-
-#metalOptions input{
-    font-size: 18px;
-}
-
-#metalOptions label {
-
-    font-size: 18px;
-    font-style: oblique;
-    
-}
-
-#metalOptions label:hover::before {
-    content: attr(for);
-    font-family: Roboto, -apple-system, sans-serif;
-}
-
-#coinOptions{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: inherit;
-    background-color: #bb2165;   
-
-}
-/* #coinText {
-    width: 300px; 
-    padding: 20px;
-    background-color: #63bb21;
-    border: 1px solid #ddd;
-    text-align: center;
-  } */
-
-
-h1 {
-    text-align: Justify; 
-    font-size: 60px;
-    justify-content: center;
-}
-
-h2 {
-    margin: 70px 10px 20px 10px;
-    font-size: 20px;
-    line-height: 1;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #aaa;
-}
-
-p {
-    margin-top: 20px;
-    color: #555;
-    text-align: center;
+  
+.introText p {
+    margin-top: 5px;
+    font-size: 25px;
+    color: black;
+    opacity: 90%;
+    text-overflow: inherit;
     font-family: 'Times New Roman', Times, serif;
     font-style: italic;
-    font-size: 25px;
 }
-
-.text {
-    width: auto;
-    margin: auto;
-    margin-bottom: 10px;
-    padding: 0px;
+  
+.introImage {
+    margin-top: 20px;
 }
-
-.graphic {
-    width: 500px;
-    height: 500px;
-    max-width: calc(90vw - 20px);
-    max-height: calc(90vw - 20px);
-
-    position: absolute;
-    top: 0px;
-    left: 0px;
+  
+.introImage img {
+    display: block;
+    margin: 0 auto;
+    max-height: 200px;
 }
-
-.container {
-    width: 500px;
-    height: 500px;
-    max-width: calc(90vw - 20px);
-    max-height: calc(90vw - 20px);
-    position: absolute;
-
-    margin: auto;
-    border: 1px solid #aaa;
+  
+.introImage.hidden {
+    transition-duration: 0.25s;
 }
-
-#svg {
-     opacity: 0;
-}
-
-/* https://getcssscan.com/css-buttons-examples */
-
-/* CSS */
-.nonSelected {
-    width: 10%;
-    appearance: none;
-    border: 2px solid #1A1A1A;
-    border-radius: 40px;
-    box-sizing: border-box;
-    color: #3B3B3B;
-    cursor: pointer;
-    display: grid;
-    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 13px;
-    font-weight: 600;
-    line-height: normal;
-    margin: 5px;
-    min-width: 0;
-    outline: solid;
-    outline-width: thin;
-    padding: 10px 24px;
-    text-align: center;
-    text-decoration: none;
-    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    will-change: transform;
+  
+.introBtn {
+    margin-top: 25px;
+    width: 24em;
     background-color: white;
-}
-
-.nonSelected:disabled {
-    pointer-events: none;
-}
-
-.nonSelected:hover {
-    color: #fff;
-    background-color: #000000;
-    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-    transform: translateY(-10px);
-}
-
-.selected {
-    appearance: none;
-    background-color: transparent;
-    border: 2px solid #1A1A1A;
-    border-radius: 40px;
-    box-sizing: border-box;
-    color: #3B3B3B;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
     cursor: pointer;
-    display: inline-block;
-    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 13px;
-    font-weight: 600;
-    line-height: normal;
-    margin: 5px;
-    min-width: 0;
-    outline: none;
-    padding: 10px 24px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+  
+.introBtn:hover {
+    background-color: #f1432a;
+}
+  
+#metalOptionsTitle {
+    opacity: 0;
+    display: none;
     text-align: center;
-    text-decoration: none;
-    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    will-change: transform;
-
-    color: #fff;
-    background-color: #1A1A1A;
-    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-    transform: translateY(-10px);
+    font-size: 30px;
+    margin-top: 10px;
+}
+  
+#metalOptionsTitle p {
+    margin-top: 50px;
+    color: #f1432a;
+    font-style: bold;
+    font-size: 50px;
+    font-family: 'Gill Sans';
+}
+  
+#metalOptions {
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+  
+#metalOptions button {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+    border: none;
+    flex-wrap: wrap;
+}
+  
+#metalOptions button img {
+    width: 100vw; 
+    object-fit: cover; 
+    display: block;
+}
+  
+#metalOptions label {
+    margin-top: 115px;
+    font-size: large;
+    transform: translate(-100%, 0);
+    font-weight: bold;
+    text-transform: capitalize;
+    font-family:  Tahoma;
+    color: #f1432a;
+}
+  
+#metalOptions button:hover {
+    opacity: 0.8;
+}
+  
+.metalImage {
+    text-align: center;
+    margin-top: 40px;
+}
+  
+.metalImage-caption {
+    max-width: 500px;
+    margin: 30px auto; 
+    text-align: center;
+    font-style: italic;
+    font-size: 30px;
+    color: blue;
+    font-weight:lighter;
+    font-family: Verdana;
+}
+  
+#coinOptionsTitle {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    text-align: center;
+    margin: 25px auto;
+    color: #f1432a;
+    font-style: bold;
+    font-size: 50px;
+    font-family: 'Gill Sans';
+}
+  
+#coinOptions {
+    margin-top: 25px;
+    margin-left: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #f1432a;
+    display: flex;
+    justify-content: space-around;
+    width: 10vw;
+    flex-wrap: wrap;
+    flex-direction: column;
+    left: 30px;
+}
+  
+#coinOptions button {
+    font-size: 15px;
+    background-color: transparent;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #202020;
+    font-family:  Tahoma;
+    color: #f1432a;
+    text-transform: capitalize;
+}
+  
+.coinImage {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+  
+.coinImage img {
+    position: absolute;
+    top: 20px;
+    margin-top: 40px;
+    text-align: center;
+    max-width: 150px;
+    max-height: 200px;
+    border: 1px solid #202020;
+    transform: translateX(-50%);
+    margin-bottom: 25px;
+}
+  
+#coinText {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    margin-top: 25px;
+    font-size: 24px;
+    transform: translateX(-50%);
+    z-index: 1;
+    margin-bottom: 25px;
+    font-weight:lighter;
+    font-family: Verdana;
+    text-transform: capitalize; 
+    font-style: italic;
+}
+  
+.transformationBtn {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin-top: 25px;
+    transform: translateX(-50%);
+    background-color: white;
+    border: 5px solid burlywood;
+    border-radius: auto;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+}
+  
+#CoinStackBar {
+    max-width: 30vw;
+    max-height: 50vh;
+    margin-top: auto;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+   
+}
+  
+.transformationBtn {
+    display: none;
 }
 
-.nonSelected:active {
-    box-shadow: none;
-    transform: translateY(0);
+.transformationBtn:hover {
+    background-color: purple;
+}
+
+.label {
+    position: absolute;
+    display: flex;
+    bottom: 40px;
+    left: 85%;
+    transform: translateX(-50%);
+    width: 25vw;
+    height: 20vh;
+    flex-direction: column; 
+    font-size: 24px;
+    align-items: flex-start; 
+    justify-content: flex-start; 
+    overflow-wrap: break-word; 
+    word-wrap: break-word; 
+    color: blue;
+  font-style: italic;
+  text-transform: capitalize;
+  font-style: italic;
+}
+
+#medium, #value {
+  font-weight: bold;
+  color: blue;
+  font-style: italic;
+  text-transform: capitalize;
+  font-style: italic;
 }

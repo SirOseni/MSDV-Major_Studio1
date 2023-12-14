@@ -1,44 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NGA Sculpture Project</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metal Sculptures in the NGA</title>
     <!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <div class="text">
-        <h1>Can we quantify Art?</h1>
-            <p> Using the denominations of the US coins, we created an interesting way of visualizing the weight of NGA sculptures made with a single metal material.</p>           
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <script src="js/coinStackBarv0-7.js"></script>
+  <body>
+    <div class="page1">
+      <div class="introText">
+        <h1>Metal Sculptures in the NGA</h1>
+        <p>
+          Using sculptures made with single metal, we showcase the quantity and
+          value of metal sculptures in the NGA.
+        </p>
+      </div>
+      <div class="introImage">
+        <img src="bronzeSculpture.svg" alt="Description of the image" />
+      </div>
+
+      <button class="introBtn">Transform NGA Metal Collections</button>
+
+      <div id="metalOptionsTitle">
+        <p>Select A Metal</p>
+      </div>
+      <div id="metalOptions"></div>
+      <div class="metalImage"></div>
+      <p class="metalImage-caption"></p>
+      <div id="coinOptionsTitle"></div>
     </div>
 
-    <button class="introBtn">Click to Transform your favorite metal sculptures</button>
+    <div class="page2">
+      <div id="coinOptions"></div>
+      <div class="coinImage"></div>
+      <div id="coinText"></div>
+      <div id="coinStackActivator"></div>
+      <button class="transformationBtn">
+        Click to complete metal transformation
+      </button>
 
-    <div id="coinVisualization"></div>
-    
-    <div class="visual">
-        <div id="svg"></div>
+        <div id="CoinStackBar"></div>
+        <div class="label" id="coinLabel" style="display: none;">
+          The NGA <span id="selectedMetal"> ____</span> collection translates to  <span id="value">___</span>   <span id="medium"> ____</span>  
+        </div>
+
     </div>
-    <div id="metalOptions">
-    </div>
 
-    <div class="metalImage"></div>
+  </body>
 
-    <div id="coinOptions">
-    </div>
-
-    <div id="coinText"></div>
-
-    <div class="interactive"></div>
-
-    <!-- <svg id="coinStack" width="500" height="500"></svg> -->
-</body>
-
-<footer>Using our national coins to depict the weight of the NGA non composite metal sculptures</footer>
-
-<script src="js/coinDisplay.js"></script>
-<script src="js/d3.v7.min.js"></script>
-
+  <script src="js/coinDisplay.js"></script>
+  <script src="js/d3.v7.min.js"></script>
 </html>

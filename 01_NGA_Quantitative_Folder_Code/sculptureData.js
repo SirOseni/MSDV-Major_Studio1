@@ -50,11 +50,11 @@ d3.csv('data/sculptureMed.csv').then(function (data) {
     svg
     .append('text')
     .attr('x', height/2 - 200)
-    .attr('y', width - 100)
+    .attr('y', width + 40)
     .style('text-anchor', 'middle')
     .style('font-weight', 'bold')
     .style('font-size', '16px')
-    .text('Era');
+    .text('Creation Era');
 
   //Draw Y Axis Label        
   svg.append('text')
@@ -109,18 +109,20 @@ d3.csv('data/sculptureMed.csv').then(function (data) {
     });
 
 legend.append("rect")
-    .attr("x", width + 120) // Adjust the 'x' position to the right of the chart
+    .attr("x", width + 100) // Adjust the 'x' position to the right of the chart
     .attr("y",-90)
     .attr("width", 12)
     .attr("height", 2)
     .style("fill", color); // Use the color scale to set the fill
 
 legend.append("text")
-    .attr("x", width + 150) // Adjust the 'x' position to the right of the rect
+    .attr("x", width + 120) // Adjust the 'x' position to the right of the rect
     .attr("y", -90)
     .attr("dy", ".35em")
     .style("text-anchor", "start")
+    .style('font-size', '20px')
     .text(function(d) { return d; });
+
 
      
 })
